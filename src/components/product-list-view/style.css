@@ -1,0 +1,35 @@
+.product-list-view {
+  margin: 20px 0px;
+}
+
+.product-list-view .ant-avatar {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+}
+
+.product-list-view .ant-btn-primary {
+  background-color: #000000;
+  border-color: #000000;
+  color: #ffffff;
+  width: 200px;
+}
+
+.product-list-view .ant-btn-primary:hover,
+.product-list-view .ant-btn-primary:focus {
+  color: #fff;
+  background: #34a853;
+  border-color: #34a853;
+}
+.product-list-view .price {
+  color: #e75012;
+  width: 100%;
+  margin-bottom: 5px;
+  font-family: 'Roboto Condensed Bold', sans-serif;
+  font-size: 30px;
+  line-height: 1.1;
+  text-align: center;
+}
+.product-list-view .col {
+  text-align: center;
+}
