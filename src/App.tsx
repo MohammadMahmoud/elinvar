@@ -24,7 +24,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route path='/cart'>
-            <Cart products={products} />
+            <Cart />
           </Route>
           <Route path='/'>
             <Home products={products} />

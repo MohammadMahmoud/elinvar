@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, Col, Row } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { ProductProps } from '../products';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../actions/cartActions';
 import './style.css';
 
 const ProductListView: React.FC<ProductProps> = ({
@@ -12,7 +14,19 @@ const ProductListView: React.FC<ProductProps> = ({
   unitPrice,
   unitsInStock,
 }: ProductProps) => {
-  const handleAddToCart = (item: string) => {};
+  const dispatch = useDispatch();
+  const handleAddProductToCart = () => {
+    dispatch(
+      addProduct({
+        description,
+        name,
+        image,
+        productID,
+        unitPrice,
+        unitsInStock,
+      })
+    );
+  };
   return (
     <div className='product-list-view'>
       <Row>
@@ -28,7 +42,7 @@ const ProductListView: React.FC<ProductProps> = ({
             Including VAT <br /> Free Delivery
           </p>
           <Button
-            onClick={() => handleAddToCart(name)}
+            onClick={handleAddProductToCart}
             type='primary'
             icon={<ShoppingCartOutlined />}
           >

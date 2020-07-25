@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Input, Radio } from 'antd';
-import Products, { ProductProps } from '../products';
 import { SearchOutlined } from '@ant-design/icons';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
+import Products, { ProductProps } from '../products';
 import './index.css';
 
 interface HomeProps {
   products: ProductProps[];
 }
 
-const Home = (props: HomeProps) => {
+const Home = ({ products }: HomeProps) => {
   const [searchValue, setSearchValue] = useState<string>();
+
   const [view, setView] = useState<'gird' | 'list'>('list');
   const [filteredProducts, setFilteredProducts] = useState<ProductProps[]>(
-    props.products
+    products
   );
 
   useEffect(() => {
-    setFilteredProducts(props.products);
-  }, [props.products]);
+    setFilteredProducts(products);
+  }, [products]);
 
   const { Content } = Layout;
   const { Search } = Input;
@@ -30,10 +31,10 @@ const Home = (props: HomeProps) => {
   const handleSearch = (value: string) => {
     setSearchValue(value);
     if (!value) {
-      setFilteredProducts(props.products);
+      setFilteredProducts(products);
     } else {
       setFilteredProducts(
-        props.products.filter((product: ProductProps) =>
+        products.filter((product: ProductProps) =>
           product.name.toLocaleLowerCase().includes(value.toLocaleLowerCase())
         )
       );
