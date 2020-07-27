@@ -1,22 +1,21 @@
 import React from 'react';
 import { Col, Card, Button } from 'antd';
-import { ProductProps } from '../products';
+import { Product } from '../../types';
 import Meta from 'antd/lib/card/Meta';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../actions/cartActions';
 import { PlusCircleOutlined } from '@ant-design/icons';
 
-const ProductListView: React.FC<ProductProps> = ({
+const ProductListView: React.FC<Product> = ({
   description,
   name,
   image,
   productID,
   unitPrice,
   unitsInStock,
-}: ProductProps) => {
+}: Product) => {
   const dispatch = useDispatch();
   const handleAddProductToCart = () => {
-    console.log('hi');
     dispatch(
       addProduct({
         description,

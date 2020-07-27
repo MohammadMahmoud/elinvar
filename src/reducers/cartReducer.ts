@@ -1,8 +1,8 @@
-import { ProductProps } from '../components/products';
-import { Action } from '../actions/cartActions';
+import { Product } from '../types';
+import { Action, ADD_PRODUCT, DELETE_PRODUCT } from '../actions/cartActions';
 
 export interface CartState {
-  products: any;
+  products: Product[];
 }
 
 const initialState: CartState = {
@@ -14,13 +14,12 @@ export const cartReducer = (
   action: Action
 ) => {
   switch (action.type) {
-    case 'ADD_PRODUCT':
+    case ADD_PRODUCT:
       return { products: [...state.products, action.payload] };
-    case 'REMOVE_PRODUCT':
+    case DELETE_PRODUCT:
       return {
         products: state.products.filter(
-          (product: ProductProps) =>
-            product.productID !== action.payload.productID
+          (product: Product) => product !== action.payload
         ),
       };
     default:

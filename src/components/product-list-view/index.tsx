@@ -1,19 +1,19 @@
 import React from 'react';
 import { Button, Col, Row } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
-import { ProductProps } from '../products';
+import { Product } from '../../types';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../actions/cartActions';
 import './style.css';
 
-const ProductListView: React.FC<ProductProps> = ({
+const ProductListView: React.FC<Product> = ({
   description,
   name,
   image,
   productID,
   unitPrice,
   unitsInStock,
-}: ProductProps) => {
+}: Product) => {
   const dispatch = useDispatch();
   const handleAddProductToCart = () => {
     dispatch(
